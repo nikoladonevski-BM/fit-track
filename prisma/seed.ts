@@ -3,8 +3,8 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.exercise.upsert({
-    create: {
+  await prisma.exercise.create({
+    data: {
       name: "flat bench press",
       duration: "3",
     },
