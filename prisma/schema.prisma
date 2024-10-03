@@ -8,7 +8,41 @@ datasource db {
 }
 
 model Exercise {
-  id       Int     @id @default(autoincrement())
-  name     String
-  duration String?
+  id           Int           @id @default(autoincrement())
+  name         String
+  note         String?
+  sets         Int           @default(3)
+  repetitions  Int           @default(10)
+  duration     Float?
+  url          String?
+  exerciseType ExerciseType? @relation(fields: [typeId], references: [id])
+  typeId       Int?
+  day          ExerciseDay?  @relation(fields: [dayId], references: [id])
+  dayId        Int?
+}
+
+model ExerciseType {
+  id       Int              @id @default(autoincrement())
+  type     ExerciseCategory
+  Exercise Exercise[]
+}
+
+enum ExerciseCategory {
+  Cardio
+  Weights
+  Stretching
+}
+
+enum ExerciseDays {
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+}
+
+model ExerciseDay {
+  id        Int          @id @default(autoincrement())
+  day       ExerciseDays
+  exercises Exercise[]
 }
