@@ -14,8 +14,8 @@ type TableProps = {
     repetitions: number;
     duration: number | null;
     url: string | null;
-    exerciseType: ExerciseCategory | null;
-    day: ExerciseDays | null;
+    exerciseType: ExerciseCategory | string;
+    day: ExerciseDays | string;
   }[];
 };
 

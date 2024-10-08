@@ -23,7 +23,7 @@ export async function getAllExercises() {
     repetitions: exercise.repetitions,
     duration: exercise.duration,
     url: exercise.url,
-    exerciseType: exercise.exerciseType?.type || null,
-    day: exercise.day?.day || null,
+    exerciseType: exercise.exerciseType?.type ?? "Unknown",
+    day: exercise.day?.day ?? "Unknown",
   }));
 }
