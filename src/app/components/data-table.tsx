@@ -3,7 +3,7 @@ import { ExerciseCategory, ExerciseDays } from "@prisma/client";
 import { DataTable } from "mantine-datatable";
 import { useEffect, useState } from "react";
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 7;
 
 type TableProps = {
   tableData: {
