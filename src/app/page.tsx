@@ -1,14 +1,13 @@
-import { Button, Paper } from "@mantine/core";
+import { Paper } from "@mantine/core";
 import Table from "./components/data-table";
+import { getAllExercises } from "../../prisma/db";
 
-export default function Home() {
+export default async function Home() {
+  const exercises = await getAllExercises();
+
   return (
     <Paper p={50}>
-      <p>FitTrack</p>
-      <Table />
-      <Button color="#C3FF36" c="black">
-        alo
-      </Button>
+      <Table tableData={exercises} />
     </Paper>
   );
 }
